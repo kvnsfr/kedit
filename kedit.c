@@ -2,20 +2,20 @@
 #include <unistd.h>
 
 void enableRawMode() {
-	struct termios raw;
+    struct termios raw;
 
-	tcgetattr(STDIN_FILENO, &raw);
+    tcgetattr(STDIN_FILENO, &raw);
 
-	raw.c_lflag &= ~(ECHO);
+    raw.c_lflag &= ~(ECHO);
 
-	tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
 int main() {
-	enableRawMode();
+    enableRawMode();
 
-	char c;
-	while (read(STDIN_FILENO, &c, 1) == 1 && c != 'q')
-		;
-	return 0;
+    char c;
+    while (read(STDIN_FILENO, &c, 1) == 1 && c != 'q')
+        ;
+    return 0;
 }
