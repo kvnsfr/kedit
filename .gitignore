@@ -54,3 +54,4 @@ dkms.conf
 # Project Files
 .idea
 cmake-build-debug
+kedit
